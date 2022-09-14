@@ -1,7 +1,7 @@
 pipeline {
     agent any
      stages {
-         stage('Build') {
+         stage('scan') {
                  // Run the maven build
                  withEnv(["MVN_HOME=$mvnHome"]) {
                      if (isUnix()) {
