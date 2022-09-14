@@ -1,10 +1,6 @@
 pipeline {
     agent any
-     tools {
-          maven 'maven3'
-        }
-
-    stages {
+     stages {
          stage('Scan') {
                 steps {
                     withSonarQubeEnv(installationName: 'sq1'){
