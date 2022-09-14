@@ -1,7 +1,7 @@
 pipeline {
     agent any
      stages {
-         stage('scan') {
+        stage('scan') {
                  // Run the maven build
                  withEnv(["MVN_HOME=$mvnHome"]) {
                          sh '"$MVN_HOME/bin/mvn" -Dmaven.test.failure.ignore clean package'
