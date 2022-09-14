@@ -1,7 +1,7 @@
 pipeline {
     agent any
     tools {
-          maven 'MAVEN_HOME'
+          maven '/Users/amitmaheta/maven-3.8/bin'
           }
      stages {
          stage('Scan') {
