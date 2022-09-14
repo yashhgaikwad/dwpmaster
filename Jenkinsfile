@@ -1,14 +1,16 @@
 pipeline {
     agent any
      stages {
-         stage('Scan') {
-                steps {
-                    withSonarQubeEnv(installationName: 'sq1'){
-                    sh 'mvn clean install'
-                    }
-                }
-            }
-
+         stage('Build') {
+                 // Run the maven build
+                 withEnv(["MVN_HOME=$mvnHome"]) {
+                     if (isUnix()) {
+                         sh '"$MVN_HOME/bin/mvn" -Dmaven.test.failure.ignore clean package'
+                     } else {
+                         bat(/"%MVN_HOME%\bin\mvn" -Dmaven.test.failure.ignore clean package/)
+                     }
+                 }
+             }
         stage('Building') {
             steps {
                 echo 'The Code will be now be built into an artifact'
