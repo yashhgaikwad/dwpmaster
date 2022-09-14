@@ -1,17 +1,15 @@
 pipeline {
     agent any
-    tools {
-          maven 'M3'
-          }
-     stages {
+     stages
+     {
          stage('Scan') {
                 steps {
-                    withSonarQubeEnv(installationName: 'sq1'){
+                    withSonarQubeEnv(installationName: 'sq1')
+                    {
                     sh 'mvn clean install'
                     }
                 }
             }
-
         stage('Building') {
             steps {
                 echo 'The Code will be now be built into an artifact'
