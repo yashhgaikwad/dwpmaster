@@ -1,13 +1,15 @@
 pipeline {
     agent any
-
+    environment {
+        PATH = "$PATH:/usr/local/Cellar/maven/3.8.6/bin"
+    }
      stages
      {
          stage('Scan') {
                 steps {
                     withSonarQubeEnv(installationName: 'sq1')
                     {
-                    sh 'mvn clean install'
+                    sh 'mvn clean package'
                     }
                 }
             }
