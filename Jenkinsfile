@@ -3,6 +3,14 @@ pipeline {
 
     stages {
 
+         stage('Scan') {
+                steps {
+                    withSonarQubeEnv(installationName: 'sq1'){
+                       sh './mvnw clean org.sonarsource.scanner.maven:sonar-maven-plugin:3.9.0.2155:sonar'
+                    }
+                }
+            }
+
         stage('Building') {
             steps {
                 echo 'The Code will be now be built into an artifact'
