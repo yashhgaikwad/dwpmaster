@@ -5,9 +5,9 @@ pipeline {
          stage('Scan') {
                 steps {
                  //   withSonarQubeEnv(installationName: 'sq1')
-                    {
+
                     sh 'mvn clean'
-                    }
+
                 }
             }
         stage('Building') {
