@@ -9,7 +9,7 @@ pipeline {
                 steps {
                     withSonarQubeEnv(installationName: 'sq3')
                     {
-                    sh 'mvnw clean package sonar:sonar'
+                    sh 'mvn clean package sonar:sonar'
                     }
                 }
             }
