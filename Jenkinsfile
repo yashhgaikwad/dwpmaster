@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        PATH = "$PATH:/usr/local/Cellar/maven/3.8.6/bin"
+        PATH = "$M2_HOME"
     }
      stages
      {
